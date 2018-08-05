@@ -1,13 +1,14 @@
-#Define the imports
+    #Define the imports
 import twitch
-import keypresser
+import sql_db
+
 t = twitch.Twitch();
-k = keypresser.Keypresser();
+db = sql_db.Sql_db();
  
 #Enter your twitch username and oauth-key below, and the app connects to twitch with the details.
 #Your oauth-key can be generated at http://twitchapps.com/tmi/
-username = "wituz";
-key = "oauth:codehere";
+username = "dylan44117";
+key = "oauth:hj3w82bti7s80yjsggqjeknlypykq5";
 t.twitch_connect(username, key);
  
 #The main loop
@@ -29,5 +30,16 @@ while True:
             #The code below will simulate the key q if "q" is typed into twitch by someone
             #.. the same thing with "w"
             #Change this to make Twitch fit to your game!
-            if msg == "q": k.key_press("q");
-            if msg == "w": k.key_press("w");
+            if msg == "q":
+                print("q was pressed")
+            if msg == "w":
+                print("w was pressed")
+            if msg == "1":
+                print("1 was pressed")
+                db.write_to_db('1')
+            if msg == "2":
+                print("2 was pressed")
+                db.write_to_db('2')
+            if msg == "3":
+                print("3 was pressed")
+                db.write_to_db('3')
